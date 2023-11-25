@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Walmart Sales Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="header">
+        <h1>Walmart Sales Prediction</h1>
+    </div>
+    <div class="container">
+        <div class="form-container">
+            <form method="POST" action="/predict">
+                <label for="store">Store:</label>
+                <input type="number" id="store" name="store" class="input-field" required>
+
+                <!-- Add more input fields and labels for other features as needed -->
+
+                <label for="dept">Department:</label>
+                <input type="number" id="dept" name="dept" class="input-field" required>
+
+                <label for="date">Date:</label>
+                <input type="date" id="date" name="date" class="input-field" required>
+
+                <label for="size">Size:</label>
+                <input type="number" id="size" name="size" class="input-field" required>
+
+                <label for="temp">Temperature:</label>
+                <input type="float" id="temp" name="temp" class="input-field" required>
+
+            <div class="holiday-toggle-container">
+                <label for="isHoliday">Is it a holiday?</label>
+                <div class="toggle-switch">
+                    <input type="checkbox" id="isHoliday" name="isHoliday" class="input-field">
+                    <label for="isHoliday"></label>
+                </div>
+            </div>
+
+                <button type="submit" class="button">Predict</button>
+            </form>
+        </div>
+        <!-- Display prediction results here -->
+        <div class="result">
+            <p>Predicted Weekly Sales for Store {{store}}, Department {{dept}} in the month of {{month_name}} {{year}} is : <strong>{{output}}</strong></p>
+        </div>
+    </div>
+</body>
+</html>
